@@ -1,0 +1,173 @@
+/* Efeitos visuais adicionais para melhorar a experiência do jogador */
+
+/* Efeito para quando a tecla é pressionada */
+.game-container.key-pressed canvas {
+    transform: scale(1.01);
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.7);
+    transition: all 0.1s ease;
+}
+
+/* Efeito de mudança de modo */
+@keyframes modeChangeEffect {
+    0% { 
+        opacity: 0.7; 
+        transform: scale(1);
+    }
+    50% { 
+        opacity: 0.3;
+        transform: scale(1.1);
+    }
+    100% { 
+        opacity: 0;
+        transform: scale(1.2);
+    }
+}
+
+.mode-change-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background: radial-gradient(circle, rgba(76, 175, 80, 0.3) 0%, rgba(0, 0, 0, 0) 70%);
+    pointer-events: none;
+    z-index: 10;
+    animation: modeChangeEffect 1s ease-out forwards;
+}
+
+/* Realce dos indicadores de modo */
+.mode-indicator {
+    transition: all 0.3s ease;
+    z-index: 20;
+}
+
+.mode-indicator.mode-player {
+    background: rgba(255, 152, 0, 0.8);
+    box-shadow: 0 0 10px rgba(255, 152, 0, 0.5);
+    font-weight: bold;
+}
+
+.mode-indicator.mode-ai {
+    background: rgba(33, 150, 243, 0.8);
+    box-shadow: 0 0 10px rgba(33, 150, 243, 0.5);
+    font-weight: bold;
+}
+
+/* Animação para as comidas */
+@keyframes foodPulse {
+    0% { transform: scale(1); box-shadow: 0 0 5px rgba(0, 247, 255, 0.5); }
+    50% { transform: scale(1.1); box-shadow: 0 0 15px rgba(0, 247, 255, 0.8); }
+    100% { transform: scale(1); box-shadow: 0 0 5px rgba(0, 247, 255, 0.5); }
+}
+
+/* Melhoria visual no botão de ajuda */
+.help-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* Estilo para destacar visualmente os controles ativos */
+.game-container[data-control="player"] canvas {
+    border: 2px solid rgba(255, 152, 0, 0.7);
+}
+
+.game-container[data-control="ai"] canvas {
+    border: 2px solid rgba(33, 150, 243, 0.7);
+}
+
+/* Melhor feedback visual para os botões */
+.player-button, .ai-button {
+    position: relative;
+    overflow: hidden;
+}
+
+.player-button::after, .ai-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: all 0.5s ease;
+}
+
+.player-button:hover::after, .ai-button:hover::after {
+    left: 100%;
+}
+
+.player-button.player-active::after, .ai-button.ai-active::after {
+    animation: buttonGlow 2s infinite;
+}
+
+@keyframes buttonGlow {
+    0% { left: -100%; }
+    50% { left: 100%; }
+    100% { left: 100%; }
+}
+
+/* Estilo para o modal de controles */
+.controls-modal {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 0 10px 10px 0;
+    padding: 15px;
+    color: white;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.controls-modal.collapsed {
+    transform: translateY(-50%) translateX(-90%);
+}
+
+.controls-tab {
+    position: absolute;
+    top: 50%;
+    right: -20px;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    width: 20px;
+    height: 40px;
+    border-radius: 0 5px 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* Estilo para pontuação do jogador */
+.player-score {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255, 215, 0, 0.3);
+    padding: 5px 10px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.player-score.highlight {
+    background: rgba(255, 215, 0, 0.8);
+    transform: scale(1.1);
+}
+
+/* Tema baseado no modo de controle */
+.game-container[data-control="player"] {
+    box-shadow: 0 0 20px rgba(255, 152, 0, 0.2);
+}
+
+.game-container[data-control="ai"] {
+    box-shadow: 0 0 20px rgba(33, 150, 243, 0.2);
+}

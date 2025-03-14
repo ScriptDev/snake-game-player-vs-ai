@@ -1,0 +1,118 @@
+<!-- Modifique a seção de controles no index.html -->
+<!-- No elemento com id="floatingControls" -->
+<div class="floating-controls" id="floatingControls">
+    <div class="controls-header">
+        <button class="minimize-btn" id="minimizeControls">_</button>
+        <span>⋮</span>
+    </div>
+    <div class="game-controls">
+        <button id="startBothBtn" class="start-button">Iniciar Jogos</button>
+        <div class="controls-separator">
+            <span class="separator-text">Jogo 1</span>
+        </div>
+        <div class="control-buttons">
+            <button id="playerBtn1" class="player-button">Jogador 1</button>
+            <button id="aiBtn1" class="ai-button">IA 1</button>
+        </div>
+        <div class="controls-separator">
+            <span class="separator-text">Jogo 2</span>
+        </div>
+        <div class="control-buttons">
+            <button id="playerBtn2" class="player-button">Jogador 2</button>
+            <button id="aiBtn2" class="ai-button">IA 2</button>
+        </div>
+        <div class="controls-info">
+            <div class="controls-info-title">Controles:</div>
+            <div class="controls-info-item">
+                <div class="controls-player">Jogador 1:</div>
+                <div class="controls-keys">⬆️⬇️⬅️➡️ (Setas)</div>
+            </div>
+            <div class="controls-info-item">
+                <div class="controls-player">Jogador 2:</div>
+                <div class="controls-keys">W A S D</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de ajuda -->
+<div class="help-modal" id="helpModal">
+    <div class="help-content">
+        <div class="help-header">
+            <span>🎮 Como Jogar</span>
+            <button class="close-btn" id="closeHelp">×</button>
+        </div>
+        <div class="help-body">
+            <h3>Modos de Jogo</h3>
+            <ul>
+                <li><strong>Modo Jogador:</strong> Controle manualmente a cobra com as teclas de direção</li>
+                <li><strong>Modo IA:</strong> Deixe a inteligência artificial controlar a cobra</li>
+            </ul>
+            
+            <h3>Controles</h3>
+            <div class="controls-list">
+                <div class="controls-column">
+                    <h4>Jogador 1:</h4>
+                    <div class="key-row">
+                        <div class="key">↑</div>
+                        <span>Cima</span>
+                    </div>
+                    <div class="key-row">
+                        <div class="key">↓</div>
+                        <span>Baixo</span>
+                    </div>
+                    <div class="key-row">
+                        <div class="key">←</div>
+                        <span>Esquerda</span>
+                    </div>
+                    <div class="key-row">
+                        <div class="key">→</div>
+                        <span>Direita</span>
+                    </div>
+                </div>
+                
+                <div class="controls-column">
+                    <h4>Jogador 2:</h4>
+                    <div class="key-row">
+                        <div class="key">W</div>
+                        <span>Cima</span>
+                    </div>
+                    <div class="key-row">
+                        <div class="key">S</div>
+                        <span>Baixo</span>
+                    </div>
+                    <div class="key-row">
+                        <div class="key">A</div>
+                        <span>Esquerda</span>
+                    </div>
+                    <div class="key-row">
+                        <div class="key">D</div>
+                        <span>Direita</span>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>Objetivo</h3>
+            <p>Colete comida para crescer e ganhar pontos, evitando colisões com obstáculos, 
+               paredes e o próprio corpo da cobra.</p>
+               
+            <h3>Elementos do Jogo</h3>
+            <ul>
+                <li><strong>🔵/🟢 Cobra:</strong> Seu personagem, cresce ao comer comida</li>
+                <li><strong>💎 Comida:</strong> Colete para ganhar pontos e crescer</li>
+                <li><strong>🧱 Muro:</strong> Obstáculo que causa Game Over se colidir</li>
+                <li><strong>🌳 Árvore:</strong> Outro tipo de obstáculo a ser evitado</li>
+                <li><strong>💧 Água:</strong> Dificulta o movimento em algumas áreas</li>
+                <li><strong>🦠 Parasita:</strong> Inimigo que persegue a cobra e pode causar danos</li>
+                <li><strong>🌀 Túnel:</strong> Portal que teleporta para outro local</li>
+            </ul>
+            
+            <div class="help-footer">
+                <button id="startGameBtn" class="start-button">Fechar e Jogar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Botão de Ajuda flutuante -->
+<button id="helpButton" class="help-button">?</button>
